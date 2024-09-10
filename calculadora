@@ -1,0 +1,34 @@
+def calcular_pontuacao(vitorias, empates, derrotas):
+    # Definindo os pontos para cada tipo de resultado
+    pontos_vitoria = 3
+    pontos_empate = 1
+    pontos_derrota = 0
+    
+    # Calculando a pontuação total
+    pontuacao_total = (vitorias * pontos_vitoria) + (empates * pontos_empate) + (derrotas * pontos_derrota)
+    
+    return pontuacao_total
+
+def main():
+    while True:
+        try:
+            # Solicitando ao usuário o número de vitórias, empates e derrotas
+            vitorias = int(input("Digite o número de vitórias: "))
+            empates = int(input("Digite o número de empates: "))
+            derrotas = int(input("Digite o número de derrotas: "))
+            
+            # Calculando a pontuação total
+            pontuacao = calcular_pontuacao(vitorias, empates, derrotas)
+            
+            # Exibindo a pontuação total
+            print(f"A pontuação total é: {pontuacao}")
+            
+            # Perguntando ao usuário se deseja continuar
+            continuar = input("Deseja calcular outra pontuação? (s/n): ").lower()
+            if continuar != 's':
+                break
+        except ValueError:
+            print("Por favor, insira um número válido.")
+
+if __name__ == "__main__":
+    main()
